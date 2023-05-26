@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>questionMusic</title>
+</head>
+
+<body>
+
+<form action="/recomment">
+
+  <html>
+    <body>
+      <table border="1">
+        <tr>
+          <td>월</td>
+          <td>
+            <input type="text" name="monday">
+          </td>
+        </tr>
+        <tr>
+          <td>화</td>
+          <input type="text" name="tuseday">
+        </tr>
+        <tr>
+          <td>수</td>
+          <input type="text" name="wensday">
+        </tr>
+        <tr>
+          <td>목</td>
+          <input type="text" name="thursday">
+        </tr>
+        <tr>
+          <td>금</td>
+          <input type="text" name="friday">
+        </tr>
+        <tr>
+          <td>토</td>
+          <input type="text" name="sataurday">
+        </tr>
+        <tr>
+          <td>일</td>
+          <input type="text" name="sunday">
+        </tr>
+      </table>
+    </body>
+  </html>
+
+  역활 <input name="role">  
+
+  <select name ="sel">
+
+  장르<select name=jenre>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select>
+
+  기분<select name=feel>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select>
+
+  날씨<select name=weather>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select>
+  
+  갯수<input name="num" value="5">  
+  <input type="submit" value="만들기">
+
+</select>
+
+</form>
+
+
+
+<script>
+  function addressKindChange(e) {
+    var jenre = ["kpopp", "jazz", "popsong", "classic"];
+    var feel = ["신나는", "우울한", "심심한"];
+    var weather = ["비오는", "화창한", "습한"];
+    var target = document.getElementById("addressKindD");
+
+    if(e.value == "a") var d = seoul;
+    else if(e.value == "b") var d = gyeonggi;
+    else if(e.value == "c") var d = chungcheongnam;
+
+    target.options.length = 0;
+
+    for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+    }   
+}
+</script>
+{% for file in files  %}
+ <a href="readquiz/{{file}}"> {{file}}  </a> <br/>
+{% endfor  %}
+
+</body>
+</html>
