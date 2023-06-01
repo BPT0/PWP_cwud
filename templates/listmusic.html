@@ -1,87 +1,84 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>questionMusic</title>
-</head>
-
-<body>
-
-<form action="/recomment">
-
-  <html>
-    <body>
-      <table border="1">
-        <tr>
-          <td>월</td>
-          <td>화</td>
-          <td>수</td>
-          <td>목</td>
-          <td>금</td>
-          <td>토</td>
-          <td>일</td>
-        </tr>
-        <tr>
-          <td>
-            <input type="text" name="mon">
-          </td>
-          <td>
-           <input type="text" name="tue">
-          </td>
-          <td>
-            <input type="text" name="wes">
-          </td>
-          <td>
-            <input type="text" name="thu">
-          </td>
-          <td>
-            <input type="text" name="fri">
-          </td>
-          <td>
-            <input type="text" name="sat">
-          </td>
-          <td>
-            <input type="text" name="sun">
-          </td>
-        </tr>  
-      </table>
-    </body>
-  </html>
-
-  역활 <input name="role">  </br>
-
-  장르<select name=jenre>
-    <option value="kpopp">kpop</option>
-    <option value="jazz">jazz</option>
-    <option value="popsong">popsong</option>
-    <option value="classic">classic</option>
-  </select> </br>
-
-  기분<select name=feel>
-    <option value="kpopp">kpop</option>
-    <option value="jazz">jazz</option>
-    <option value="popsong">popsong</option>
-    <option value="classic">classic</option>
-  </select> </br>
-
-  날씨<select name=weather>
-    <option value="kpopp">kpop</option>
-    <option value="jazz">jazz</option>
-    <option value="popsong">popsong</option>
-    <option value="classic">classic</option>
-  </select> </br>
-  
-  갯수<input name="num" value="5"> </br>
-
-  플레이리스트 이름 <input name="playlistName"> </br>
-  
-  <input type="submit" value="만들기"> 
-
-</form>
-
-{% for file in files  %}
- <a href="readmusic/{{file}}"> {{file}}  </a> <br/>
-{% endfor  %}
-
-</body>
-</html>
+<html>
+        <head><title>음악추천</title>
+        <style>
+            
+            html, body { 
+                width: 100%;
+                height: 100%;
+            }
+            #musicSubmit{
+                margin-top: 10px;
+                background-color: #B2FA5C;
+                border: 1px solid #64CD3C;
+            }
+            #musicSubmit:hover{
+                cursor: pointer;
+            }
+            
+        </style>
+        </head>
+        <body id="wrapper">
+            <h1>음악 추천 사이트</h1>
+            <div>일주일 동안 들은 노래</div>
+            <br>
+            <form action=/gpt>
+                <table class="myMusicTable">
+                    <thead>
+                    <tr><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><input id="music" type="text" name="myMusicMon" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicTue" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicWed" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicThu" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicFri" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicSat" placeholder="제목-가수"></td>
+                            <td><input id="music" type="text" name="myMusicSun" placeholder="제목-가수"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    장르
+                    <select name=genre>
+                        <option value="랜덤하게">랜덤</option> 
+                        <option value="POP">팝송</option>
+                        <option value="K-POP">K-POP</option>
+                        <option value="발라드">발라드</option>
+                        <option value="힙합">힙합</option>
+                        <option value="트로트">트로트</option>
+                    </select>
+                </div>
+                <div>
+                    기분별
+                    <select name=feeling>
+                        <option value="랜덤하게">랜덤</option>   
+                        <option value="신날 때">신나는</option>
+                        <option value="우울할 때">우울한</option>
+                        <option value="설렐 때">설레는</option>
+                        <option value="외로울 때">외로운</option>
+                        <option value="스트레스 받을 때">스트레스 받은</option>
+                        <option value="피곤할 때">피곤한</option>               
+                    </select>
+                </div>
+                <div>
+                    날씨별
+                    <select name=weather>
+                        <option value="관계없이">랜덤</option>    
+                        <option value="맑을 때">맑은 날</option>
+                        <option value="비올 때">비오는 날</option>
+                        <option value="봄일때 ">봄</option>
+                        <option value="여름일때">여름</option>
+                        <option value="가을일때">가을</option>
+                        <option value="겨울일때">겨울</option>              
+                    </select>
+                </div>                
+                <input id="musicSubmit" type=submit value='노래 추천받기' /> 
+                <br>
+            </form>
+            <hr>
+            <div>추천받은 playlist 목록보기</div>
+            {% for file in files  %}
+                <a href="readmusic/{{file}}"> {{file}}  </a> <br/>
+            {% endfor  %}
+        </body>
+        </html>

@@ -1,8 +1,52 @@
-{%  for d in data %}
-   Q:{{d["문제"]}}  <br/>
-   <input type=radio name="q{{loop.index}}" >1.{{d["보기1"]}} <br/> 
-   <input type=radio name="q{{loop.index}}" >2.{{d["보기2"]}} <br/>
-   <input type=radio name="q{{loop.index}}" >3.{{d["보기3"]}} <br/>
-   <input type=radio name="q{{loop.index}}" >4.{{d["보기4"]}} <br/><br/><br/>
-   <hr/>
-{% endfor %}
+<html>
+   <head><title>플레이리스트</title>
+    <style>   
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        table{
+        border: 1px solid lightgrey;
+        border-collapse: collapse;
+        width: 91%;
+        text-align: center;
+        }
+        th,td{
+        border: 1px solid lightgrey;
+        }
+
+        table tr td{
+
+        overflow: hidden;
+        width: 13%;
+        white-space: initial;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        }   
+    </style>
+</head>
+<body id="wrapper">
+   <h1>PLAYLIST</h1>
+   <br>
+      <table class="myMusicTable">
+            <tr>
+               {%  for d   in data %}
+                  <td id="day">{{d["요일"]}}</td>
+               {% endfor %}
+            </tr>
+           
+            <tr>
+               {%  for d   in data %}
+                  <td id="musicUrl">
+                     <a href="{{d["URL"]}}"> 
+                        {{d["노래-가수"]}}
+                     </a>
+                  </td>
+                  
+               {% endfor %}  
+            </tr>
+      </table>
+      
+</body>
+</html>   
