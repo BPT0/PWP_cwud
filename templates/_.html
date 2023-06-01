@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>questionMusic</title>
+</head>
+
+<body>
+
+<form action="/recomment">
+
+  <html>
+    <body>
+      <table border="1">
+        <tr>
+          <td>월</td>
+          <td>화</td>
+          <td>수</td>
+          <td>목</td>
+          <td>금</td>
+          <td>토</td>
+          <td>일</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="mon">
+          </td>
+          <td>
+           <input type="text" name="tue">
+          </td>
+          <td>
+            <input type="text" name="wes">
+          </td>
+          <td>
+            <input type="text" name="thu">
+          </td>
+          <td>
+            <input type="text" name="fri">
+          </td>
+          <td>
+            <input type="text" name="sat">
+          </td>
+          <td>
+            <input type="text" name="sun">
+          </td>
+        </tr>  
+      </table>
+    </body>
+  </html>
+
+  역활 <input name="role">  </br>
+
+  장르<select name=jenre>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select> </br>
+
+  기분<select name=feel>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select> </br>
+
+  날씨<select name=weather>
+    <option value="kpopp">kpop</option>
+    <option value="jazz">jazz</option>
+    <option value="popsong">popsong</option>
+    <option value="classic">classic</option>
+  </select> </br>
+  
+  갯수<input name="num" value="5"> </br>
+
+  플레이리스트 이름 <input name="playlistName"> </br>
+  
+  <input type="submit" value="만들기"> 
+
+</form>
+
+{% for file in files  %}
+ <a href="readmusic/{{file}}"> {{file}}  </a> <br/>
+{% endfor  %}
+
+</body>
+</html>
